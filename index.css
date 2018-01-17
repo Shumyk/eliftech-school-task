@@ -1,0 +1,77 @@
+html, body {
+	height: 100%;
+	margin:0;
+	background-color:#F5F5DC;
+}
+
+h2, h4, p {	text-align:center; }
+
+button {
+    margin: -20px -50px;
+    top:1%; 
+    left:50%;
+	display: block;
+	background: #4682B4;
+	border-radius: 80%;
+	height: 50px;
+	width: 10	0px;
+	font-size: 15px;
+	color:white;
+	position:relative;
+}
+
+.all {
+	display:block;
+	overflow:auto;
+	border:1px solid #4682B4;
+	background-color: #F0F8FF;
+	height: 100%;
+	margin-left: 80px;
+	margin-right: 80px;
+	padding-bottom: 0px;
+}
+
+.received {
+	display: block;
+	overflow: auto;
+	border: 1px solid #4682B4;
+	background-color: white;
+	margin-right: 20px;
+	margin-left: 20px;
+	height: 250px;
+	font-size: 15px;
+}
+
+.result {
+	display: block;
+	overflow: auto;
+	border: 1px solid #4682B4;
+	background-color: white;
+	margin-right: 20px;
+	margin-left: 20px;
+	height: 250px;
+	font-size: 15px;
+}
+
+.elevation {
+	display: block;
+	overflow: auto;
+	border: 1px solid #4682B4;
+	background-color: white;
+	margin-right: 20px;
+	margin-left: 20px;
+	height: 120px;
+	font-size: 15px;
+}
+
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+#congr { 
+	display: none;
+	font-size: 100px;
+	color: magenta;
+ }

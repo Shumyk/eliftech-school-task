@@ -3,19 +3,30 @@
 <head>
 	<title>ElifTech Welcome Task</title>
 	<script src="jquery-3.2.1.min.js"></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js></script>
 	<script type="text/javascript" src="getJSON.js"></script>
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<h3>Welcome here!</h3>
+	<div class="all">
+		<h2>ElifTech School 2018 Test</h2>
+		<p>Press button to start execution of script.</p>
 
-	<div id="start" onclick="fetchJSON();" style="border: solid">
-		Lets start! 
+		<button id="start"  onclick="fetchJSON();" >
+			Lets start! 
+		</button>
+		<br/>
+
+		<h4>Received JSON</h4>
+		<pre id="receivedJSON" class="received"></pre><br>
+
+		<h4>Calculated Result</h4>
+		<pre id="calcResult" class="result"></pre><br>
+		
+		<h4>Evaluation from server</h4>
+		<pre id="serverEval" class="elevation"></pre>
+
+		<dir id="congr">Congratulations!<br/> You passed the test!<br/>:D</dir>
 	</div>
-
-	<div id="getJSON"></div>
-
-	<br/>
-	<div id="postfixResult">Here should be final result</div>
-
 </body>
 </html>
