@@ -58,28 +58,28 @@ function doResultPost(jsonResult) {
 /*
 	This block of the code recursive performs calculation on received expretion.
 */
-const calculateExpr = exp => {
+function calculateExpr(exp) {
 
     if (exp.length == 1) {
     	currentResult = exp.pop();
-    	return;
+    	return exp.pop();
      }
 
-	exp.forEach((item, i) => {
+	$.each(exp, function(i, item) {
 		    if (item === '/') {
-		        exp.splice(i - 2, 3, divide(num(exp[i - 2]), num(exp[i - 1])));
+		        exp.splice(i - 2, 3, divide(pint(exp[i - 2]), pint(exp[i - 1])));
 		        calculateExpr(exp);
 
 		    } else if (item === '*') {
-		        exp.splice(i - 2, 3, mul(num(exp[i - 2]), num(exp[i - 1])));
+		        exp.splice(i - 2, 3, mul(pint(exp[i - 2]), pint(exp[i - 1])));
 		        calculateExpr(exp);
 
 		    } else if (item === '+') {
-		        exp.splice(i - 2, 3, add(num(exp[i - 2]), num(exp[i - 1])));
+		        exp.splice(i - 2, 3, add(pint(exp[i - 2]), pint(exp[i - 1])));
 		        calculateExpr(exp);
 
 		    } else if (item === '-') {
-		        exp.splice(i - 2, 3, minus(num(exp[i - 2]), num(exp[i - 1])));
+		        exp.splice(i - 2, 3, minus(pint(exp[i - 2]), pint(exp[i - 1])));
 		      	calculateExpr(exp);
 		    }
 		});
@@ -88,12 +88,12 @@ const calculateExpr = exp => {
 /*
 	Bunch of functions how to handle particular operation according to the task.
 */
-const add = (a, b) => { return a - b; };
-const minus = (a, b) => { return a + b + 8; };
-const mul = (a, b) => { if (b === 0) { return 42; } return ((a%b)+b)%b; };
-const divide = (a, b) => { if (b === 0) { return 42; } return Math.floor(a/b); };
+function add(a, b) { return a - b; };
+function minus(a, b) { return a + b + 8; };
+function mul(a, b) { if (b === 0) { return 42; } return ((a%b)+b)%b; };
+function divide(a, b) { if (b === 0) { return 42; } return Math.floor(a/b); };
 
-const num = num => parseInt(num);
+function pint(i) {  return parseInt(i); }
 
 /*
 	Function accepts JSON string and returns html string for pretty-displaying.
@@ -115,8 +115,4 @@ function syntaxHighlight(json) {
         }
         return '<span class="' + cls + '">' + match + '</span>';
     });
-}
-
-String.prototype.isNumeric = function() {
-    return !isNaN(parseFloat(this)) && isFinite(this);
 }
